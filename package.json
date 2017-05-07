@@ -35,7 +35,7 @@
     }
   },
   "dependencies": {
-    "domhandler": "^2.3.0",
+    "domhandler": "^2.4.0",
     "htmlparser2": "^3.8.3",
     "ramda": "^0.23.0",
     "underscore.string.fp": "^1.0.4"
