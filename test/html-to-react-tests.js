@@ -420,4 +420,15 @@ describe('Html2React', function () {
       assert.equal(htmlInput, output);
     });
   });
+
+  describe('parsing elements with style properties', function() {
+    it('should result in a elemnt with style properties', function () {
+      var htmlInput = '<div><p style="font-family: &quot;Open Sans&quot;">Test text</p></div>';
+
+      var reactComponent = parser.parse(htmlInput);
+      var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+
+      assert.equal(reactHtml, htmlInput);
+    });
+  });
 });
