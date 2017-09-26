@@ -31,9 +31,9 @@ describe('Html2React', function () {
     });
 
     it('should return a valid HTML string with inline styles', function () {
-      var htmlInput = '<div style="background-image: url(' +
-        '&quot;http://lorempixel.com/400/200/&quot;);background-color: red;color: white;' +
-        'font-family: &quot;Open Sans&quot;;"></div>';
+      var htmlInput = '<div style="background-image:url(' +
+        '&quot;http://lorempixel.com/400/200/&quot;);background-color:red;color:white;' +
+        'font-family:&quot;Open Sans&quot;;"></div>';
 
       var reactComponent = parser.parse(htmlInput);
       var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
@@ -42,9 +42,9 @@ describe('Html2React', function () {
     });
 
     it('should return a valid HTML string with inline image in style', function () {
-      var htmlInput = '<div style="background: url(' +
-        'data:image/png;base64,iVBORw0KGgoAAA);color: white;' +
-        'font-family: &quot;Open Sans&quot;;"></div>';
+      var htmlInput = '<div style="background:url(' +
+        'data:image/png;base64,iVBORw0KGgoAAA);color:white;' +
+        'font-family:&quot;Open Sans&quot;;"></div>';
 
       var reactComponent = parser.parse(htmlInput);
       var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
@@ -240,6 +240,14 @@ describe('Html2React', function () {
       var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       assert.equal(reactHtml, htmlInput);
+    });
+
+    it('should handle spaces in inline styles', function () {
+      var htmlInput = '<p style="text-align: center"></p>';
+
+      var reactComponent = parser.parse(htmlInput);
+
+      assert.equal(reactComponent.props.style.textAlign, 'center');
     });
   });
 
