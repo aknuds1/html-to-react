@@ -241,6 +241,14 @@ describe('Html2React', function () {
 
       assert.equal(reactHtml, htmlInput);
     });
+
+    it('should handle spaces in inline styles', function () {
+      var htmlInput = '<p style="text-align: center"></p>';
+
+      var reactComponent = parser.parse(htmlInput);
+
+      assert.equal(reactComponent.props.style.textAlign, 'center');
+    });
   });
 
   describe('parse invalid HTML', function () {
@@ -402,14 +410,6 @@ describe('Html2React', function () {
         var reactComponent = parser.parse(htmlInput);
 
         assert.equal(reactComponent.props.children.length, 5);
-      });
-
-      it('Inline style should not contain usless spaces', function () {
-        var htmlInput = '<p style="text-align: center"></p>';
-
-        var reactComponent = parser.parse(htmlInput);
-
-        assert.equal(reactComponent.props.style.textAlign, 'center');
       });
     });
   });
