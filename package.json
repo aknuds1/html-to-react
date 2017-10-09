@@ -38,7 +38,7 @@
     "domhandler": "^2.3.0",
     "escape-string-regexp": "^1.0.5",
     "htmlparser2": "^3.8.3",
-    "ramda": "^0.24.1",
+    "ramda": "^0.25.0",
     "underscore.string.fp": "^1.0.4"
   },
   "peerDependencies": {
