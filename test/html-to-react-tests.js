@@ -249,6 +249,15 @@ describe('Html2React', function () {
 
       assert.equal(reactComponent.props.style.textAlign, 'center');
     });
+
+    it('should handle spaces in inline styles with numbers', function () {
+      var htmlInput = '<p style="width: 0; height: 1"></p>';
+      var htmlExpected = '<p style="width:0;height:1"></p>';
+
+      var reactComponent = parser.parse(htmlInput);
+      var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      assert.equal(reactHtml, htmlExpected);
+    });
   });
 
   describe('parse invalid HTML', function () {
