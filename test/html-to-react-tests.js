@@ -283,6 +283,17 @@ describe('Html2React', function () {
 
       assert.strictEqual(reactElem.props.value, '');
     });
+    
+    it('should parse valid HTML string that contains "<" character inside its content',
+      function () {
+        const htmlInput = '<code> <- </code>';
+        const htmlExpected = '<code> <- </code>';
+
+        const reactComponent = parser.parse(htmlInput);
+        const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+
+        assert.equal(reactHtml, htmlExpected);
+    });
   });
 
   describe('parse invalid HTML', function () {
