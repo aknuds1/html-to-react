@@ -292,6 +292,8 @@ var reactComponent = parser.parseWithInstructions(htmlInput, isValidNode, proces
 var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
 assert.equal(reactHtml, htmlExpected);
 ```
+Material UI  , Semantic UI , Raect-bootstrap , Moment-js:
+In react it is to much powerful library to style component in .
 
 ## Tests & Coverage
 
