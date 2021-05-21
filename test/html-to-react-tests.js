@@ -269,11 +269,21 @@ describe('Html2React', () => {
     });
 
     it('should handle onclick attributes', function () {
-      const htmlInput = '<button onclick="alert(\'hello!\')">Hello</button>';
+      const htmlInput = `<button onclick="alert('hello!')">Hello</button>`;
 
       const reactElem = parser.parse(htmlInput);
 
-      assert.strictEqual(reactElem.props.onClick, 'alert(\'hello!\')');
+      assert.strictEqual(String(reactElem.props.onClick), String(Function(`alert('hello!')`)));
+    });
+
+    it('should return a valid HTML string with onclick attributes', function () {
+      const htmlInput = `<button onclick="alert('hello!')">Hello</button>`;
+
+      const reactElem = parser.parse(htmlInput);
+      assert.strictEqual(typeof reactElem.props.onClick, 'function');
+      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactElem);
+
+      assert.strictEqual(htmlInput, reactHtml);
     });
 
     it('should handle inputs with empty value attribute', function () {
