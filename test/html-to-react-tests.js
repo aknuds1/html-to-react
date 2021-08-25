@@ -283,6 +283,14 @@ describe('Html2React', () => {
 
       assert.strictEqual(reactElem.props.value, '');
     });
+
+    it('should handle readonly attribute written in lowercase', function () {
+      const htmlInput = '<input readonly>';
+
+      const reactElem = parser.parse(htmlInput);
+
+      assert.strictEqual(reactElem.props.readOnly, 'readOnly');
+    });
   });
 
   describe('parse invalid HTML', () => {
