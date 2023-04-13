@@ -1,5 +1,5 @@
 declare module 'html-to-react' {
-  import { type ParserOptions } from 'htmlparser2';
+  import { ParserOptions } from 'htmlparser2';
   import { ReactElement } from 'react';
 
   function Html2ReactParser(options: ParserOptions): {
