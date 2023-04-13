@@ -48,6 +48,7 @@
     "nyc": "^15.1.0",
     "react-dom": "^18.0"
   },
+  "types": "./index.d.ts",
   "volta": {
     "node": "18.12.1"
   }
