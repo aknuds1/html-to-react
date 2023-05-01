@@ -1,7 +1,7 @@
 {
-  "include": ["lib/**/*"],
+  "typeRoot": ".",
   "compilerOptions": {
-    "allowJs": true,
-    "strict": true
+    "strict": true,
+    "esModuleInterop": true
   }
 }

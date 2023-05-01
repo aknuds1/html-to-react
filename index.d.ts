@@ -3,18 +3,21 @@ declare module 'html-to-react' {
   import { ReactElement } from 'react';
 
   function Html2ReactParser(options?: ParserOptions): {
-    parse: (html: string) => JSX.Element;
+    parse: (html: string) => JSX.Element | JSX.Element[];
     parseWithInstructions: (
       html: string,
       isValidNode: (node: any) => boolean,
       processingInstructions?: ProcessingInstructionType[],
-      preprocessingInstructions?: ProcessingInstructionType[]
-    ) => JSX.Element;
+      preprocessingInstructions?: PreProcessingInstructionType[]
+    ) => JSX.Element | JSX.Element[];
   };
 
-  export type ProcessNodeFunctionType = (node: any, children: any, index: number) => ReactElement;
-
-  export type ProcessingInstructionType = {
+  type ProcessNodeFunctionType = (node: any, children: any, index: number) => ReactElement;
+  type PreProcessingInstructionType = { 
+    shouldPreprocessNode: (node: any) => boolean;
+    preprocessNode: ProcessNodeFunctionType;
+  };
+  type ProcessingInstructionType = {
     shouldProcessNode: (node: any) => boolean;
     processNode: ProcessNodeFunctionType;
   };

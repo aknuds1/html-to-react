@@ -44,6 +44,7 @@
     "@types/mocha": "^10.0.1",
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
+    "check-dts": "^0.7.2",
     "coveralls": "^3.1.0",
     "eslint": "^8.1",
     "mocha": "^10.0",

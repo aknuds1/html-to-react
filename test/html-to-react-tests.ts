@@ -2,7 +2,7 @@ import { equal, strictEqual, deepStrictEqual, ok } from "assert";
 import * as React from "react";
 import * as ReactDOMServer from "react-dom/server";
 
-import { Parser, ProcessNodeDefinitions } from "../index";
+import { Parser, ProcessNodeDefinitions } from "html-to-react";
 import booleanAttrs from "./boolattrs";
 
 describe("Html2React", () => {
