@@ -1,7 +1,9 @@
 {
-  "typeRoot": ".",
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true
+  },
+  "ts-node": {
+    "files": true
   }
 }
