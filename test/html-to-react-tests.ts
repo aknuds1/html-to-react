@@ -13,7 +13,9 @@ describe("Html2React", () => {
       const htmlInput = "<p>Does this work?</p>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -22,7 +24,9 @@ describe("Html2React", () => {
       const htmlInput = "<div><h1>Heading</h1></div>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -34,7 +38,9 @@ describe("Html2React", () => {
         'font-family:&quot;Open Sans&quot;"></div>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -46,7 +52,9 @@ describe("Html2React", () => {
         'font-family:&quot;Open Sans&quot;"></div>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -56,7 +64,9 @@ describe("Html2React", () => {
       const htmlExpected = "<div></div>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlExpected);
     });
@@ -65,7 +75,9 @@ describe("Html2React", () => {
       const htmlInput = '<div style="color:var(--color-example);--color-example:black"></div>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -74,7 +86,9 @@ describe("Html2React", () => {
       const htmlInput = '<div data-test-attribute="data attribute value"></div>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -83,7 +97,9 @@ describe("Html2React", () => {
       const htmlInput = '<div aria-labelledby="label1"></div>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -92,7 +108,9 @@ describe("Html2React", () => {
       const htmlInput = '<div class="class-one"></div>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -101,7 +119,9 @@ describe("Html2React", () => {
       const htmlInput = '<label for="input"></label>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -110,7 +130,9 @@ describe("Html2React", () => {
       const htmlInput = '<div contenteditable="true"></div>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -120,7 +142,9 @@ describe("Html2React", () => {
         '<form accept-charset="en"><svg viewBox="0 0 10 10"><text text-anchor="left">' +
         '</text><circle stroke="black" stroke-width="42"></circle></svg></form>';
       const reactComponent = parser.parse(input);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, input);
     });
@@ -130,7 +154,9 @@ describe("Html2React", () => {
       const htmlInput = "<div><!-- This is a comment --></div>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -141,7 +167,9 @@ describe("Html2React", () => {
       const htmlExpected = "<div></div>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlExpected);
     });
@@ -151,7 +179,9 @@ describe("Html2React", () => {
       const htmlExpected = "<div><p>Line one<br/>Line two<br/>Line three</p></div>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlExpected);
     });
@@ -160,14 +190,17 @@ describe("Html2React", () => {
       const htmlInput = "<br/>";
 
       const reactComponent = parser.parse(htmlInput);
-      strictEqual((reactComponent.props.children || []).length, 0);
+      const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+      strictEqual((component.props.children || []).length, 0);
     });
 
     it("should parse void elements with all attributes and no warnings", () => {
       const htmlInput = '<p><img src="www.google.ca/logo.png"/></p>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -177,7 +210,9 @@ describe("Html2React", () => {
       const htmlInput = "<textarea></textarea>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -186,8 +221,8 @@ describe("Html2React", () => {
       const htmlInput = "<ul><li>Item 1</li><li>Item 2</li><</ul>";
 
       const reactComponent = parser.parse(htmlInput);
-
-      const children = reactComponent.props.children.flat().filter((c: any) => {
+      const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+      const children = component.props.children.flat().filter((c: any) => {
         return c.hasOwnProperty("key");
       });
       const keys = children.map((child: any) => {
@@ -201,7 +236,9 @@ describe("Html2React", () => {
       const htmlExpected = "<div><p>Line one<br/>Line two<br/>Line three</p></div>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlExpected);
     });
@@ -210,7 +247,9 @@ describe("Html2React", () => {
       const htmlInput = '<p><img src="www.google.ca/logo.png"/></p>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -219,7 +258,9 @@ describe("Html2React", () => {
       const htmlInput = "<div>1 &lt; 2</div>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -228,8 +269,8 @@ describe("Html2React", () => {
       const htmlInput = "<div></div>";
 
       const reactComponent = parser.parse(htmlInput);
-
-      strictEqual((reactComponent.props.children || []).length, 0);
+      const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+      strictEqual((component.props.children || []).length, 0);
     });
 
     it("should fill in the key name with boolean attribute", () => {
@@ -237,7 +278,9 @@ describe("Html2React", () => {
       const htmlExpected = '<input type="checkbox" disabled="" required=""/>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlExpected);
     });
@@ -246,7 +289,9 @@ describe("Html2React", () => {
       const htmlInput = '<p><a href="http://domain.com/search?query=1&amp;lang=en">A link</a></p>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const reactHtml = Array.isArray(reactComponent) ?
+         ReactDOMServer.renderToStaticMarkup(reactComponent[0])
+      : ReactDOMServer.renderToStaticMarkup(reactComponent);
 
       equal(reactHtml, htmlInput);
     });
@@ -255,8 +300,8 @@ describe("Html2React", () => {
       const htmlInput = '<p style="text-align: center"></p>';
 
       const reactComponent = parser.parse(htmlInput);
-
-      equal(reactComponent.props.style.textAlign, "center");
+      const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+      equal(component.props.style.textAlign, "center");
     });
 
     it("should handle doctype directives", () => {
@@ -265,7 +310,8 @@ describe("Html2React", () => {
         '"http://www.w3.org/TR/REC-html40/loose.dtd"><html><body><div></div></body></html>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+      const reactHtml = ReactDOMServer.renderToStaticMarkup(component);
 
       equal(reactHtml, "<html><body><div></div></body></html>");
     });
@@ -274,7 +320,8 @@ describe("Html2React", () => {
       const htmlInput = "text<div></div>text";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+      const reactHtml = ReactDOMServer.renderToStaticMarkup(component);
 
       equal(reactHtml, "text<div></div>text");
     });
@@ -283,17 +330,17 @@ describe("Html2React", () => {
       const htmlInput = `<button onclick="alert('hello!')">Hello</button>`;
 
       const reactElem = parser.parse(htmlInput);
-
-      strictEqual(typeof reactElem.props.onClick, "function");
-      strictEqual(String(reactElem.props.onClick), String(Function(`alert('hello!')`)));
+      const element = Array.isArray(reactElem) ? reactElem[0] : reactElem;
+      strictEqual(typeof element.props.onClick, "function");
+      strictEqual(String(element.props.onClick), String(Function(`alert('hello!')`)));
     });
 
     it("should handle inputs with empty value attribute", function () {
       const htmlInput = '<input value="">';
 
       const reactElem = parser.parse(htmlInput);
-
-      strictEqual(reactElem.props.value, "");
+      const element = Array.isArray(reactElem) ? reactElem[0] : reactElem; 
+      strictEqual(element.props.value, "");
     });
 
     it("should handle boolean attributes with implicit value", function () {
@@ -301,8 +348,8 @@ describe("Html2React", () => {
         const htmlInput = `<input ${attr.toLowerCase()}>`;
 
         const reactElem = parser.parse(htmlInput);
-
-        strictEqual(reactElem.props[attr], attr);
+        const element = Array.isArray(reactElem) ? reactElem[0] : reactElem;
+        strictEqual(element.props[attr], attr);
       });
     });
   });
@@ -313,7 +360,8 @@ describe("Html2React", () => {
       const htmlExpected = "<div><p></p></div>";
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+      const reactHtml = ReactDOMServer.renderToStaticMarkup(component);
 
       equal(reactHtml, htmlExpected);
     });
@@ -323,7 +371,8 @@ describe("Html2React", () => {
       const htmlExpected = '<div style="color:black"></div>';
 
       const reactComponent = parser.parse(htmlInput);
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+      const reactHtml = ReactDOMServer.renderToStaticMarkup(component);
 
       equal(reactHtml, htmlExpected);
     });
@@ -378,7 +427,8 @@ describe("Html2React", () => {
           isValidNode,
           processingInstructions
         );
-        const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+        const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+        const reactHtml = ReactDOMServer.renderToStaticMarkup(component);
         equal(reactHtml, htmlExpected);
       });
 
@@ -414,7 +464,8 @@ describe("Html2React", () => {
           isValidNode,
           processingInstructions
         );
-        const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+        const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+        const reactHtml = ReactDOMServer.renderToStaticMarkup(component);
         equal(reactHtml, htmlExpected);
       });
 
@@ -449,7 +500,8 @@ describe("Html2React", () => {
           isValidNode,
           processingInstructions
         );
-        const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+        const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+        const reactHtml = ReactDOMServer.renderToStaticMarkup(component);
         equal(reactHtml, htmlExpected);
       });
 
@@ -496,16 +548,16 @@ describe("Html2React", () => {
           },
           processingInstructions
         );
-
-        equal(reactComponent.props.children.length, 2);
+        const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+        equal(component.props.children.length, 2);
       });
 
       it("should not affect unhandled whitespace", () => {
         const htmlInput = "<div> <p></p> <p></p> </div>";
 
         const reactComponent = parser.parse(htmlInput);
-
-        equal(reactComponent.props.children.length, 5);
+        const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+        equal(component.props.children.length, 5);
       });
     });
 
@@ -590,8 +642,8 @@ describe("Html2React", () => {
         processingInstructions,
         preprocessingInstructions
       );
-
-      const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+      const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+      const reactHtml = ReactDOMServer.renderToStaticMarkup(component);
       strictEqual(reactHtml, htmlExpected);
     });
   });
@@ -607,7 +659,8 @@ describe("Html2React", () => {
       };
       Object.entries(input2RegExp).forEach(([input, regExp]) => {
         const reactComponent = parser.parse(input);
-        const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+        const component = Array.isArray(reactComponent) ? reactComponent[0] : reactComponent;
+        const reactHtml = ReactDOMServer.renderToStaticMarkup(component);
 
         ok(regExp.test(reactHtml), reactHtml + " has expected attributes");
       });
@@ -618,6 +671,9 @@ describe("Html2React", () => {
     it("should result in a list of React elements", () => {
       const htmlInput = "<div></div><div></div>";
       const elements = parser.parse(htmlInput);
+      if (!Array.isArray(elements)) {
+        throw new Error("Expected an array of elements");
+      }
       const output = elements.map(ReactDOMServer.renderToStaticMarkup).join("");
       equal(htmlInput, output);
     });

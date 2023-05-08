@@ -13,9 +13,11 @@ declare module 'html-to-react' {
   };
 
   type ProcessNodeFunctionType = (node: any, children: any, index: number) => ReactElement;
+  type PreProcessNodeFunctionType = (node: any, children: any, index: number) => void;
+
   type PreProcessingInstructionType = { 
     shouldPreprocessNode: (node: any) => boolean;
-    preprocessNode: ProcessNodeFunctionType;
+    preprocessNode: PreProcessNodeFunctionType;
   };
   type ProcessingInstructionType = {
     shouldProcessNode: (node: any) => boolean;
