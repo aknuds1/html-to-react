@@ -39,7 +39,7 @@
     "react": "^0.13.0 || ^0.14.0 || >=15"
   },
   "dependencies": {
-    "domhandler": "^5.0",
+    "domhandler": "^6.0",
     "htmlparser2": "^10.0",
     "lodash.camelcase": "^4.3.0"
   },
