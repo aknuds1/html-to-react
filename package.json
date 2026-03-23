@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "domhandler": "^6.0",
-    "htmlparser2": "^10.0",
+    "htmlparser2": "^12.0",
     "lodash.camelcase": "^4.3.0"
   },
   "devDependencies": {
