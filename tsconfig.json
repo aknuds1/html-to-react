@@ -1,5 +1,5 @@
 {
-  "include": ["lib/**/*"],
+  "include": ["lib/**/*", "test/**/*"],
   "compilerOptions": {
     "allowJs": true,
     // Generate d.ts files
@@ -7,6 +7,11 @@
     "emitDeclarationOnly": true,
     "outDir": "types",
     "declarationMap": true,
-    "strict": true
+    "strict": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es2018",
+    "lib": ["es2018"],
+    "types": ["mocha", "node"]
   }
 }
