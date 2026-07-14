@@ -1,5 +1,5 @@
 {
   "extension": ["ts"],
   "spec": "test/**/*-tests.ts",
-  "require": "ts-node/register"
+  "node-option": ["disable-warning=MODULE_TYPELESS_PACKAGE_JSON"]
 }

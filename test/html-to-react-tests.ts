@@ -2,9 +2,8 @@ import { equal, strictEqual, deepStrictEqual, ok } from 'assert';
 import * as React from 'react';
 import * as ReactDOMServer from 'react-dom/server';
 
-import { Parser } from '..';
-import { ProcessNodeDefinitions } from '..';
-import { booleanAttrs } from './boolattrs';
+import { Parser, ProcessNodeDefinitions } from '../index.js';
+import { booleanAttrs } from './boolattrs.ts';
 
 describe('Html2React', () => {
   const parser = Parser();
