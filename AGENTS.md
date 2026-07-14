@@ -11,7 +11,7 @@ html-to-react is a lightweight library that converts raw HTML to a React DOM str
 - `npm test` - Run ESLint + Mocha tests
 - `npm run test-coverage` - Run tests with nyc coverage + lcov report
 - `npm run test-html-coverage` - Generate and open HTML coverage report
-- Run a single test: `npx mocha --require ts-node/register --extension ts 'test/html-to-react-tests.ts' --grep 'test name pattern'`
+- Run a single test: `npx mocha --extension ts 'test/html-to-react-tests.ts' --grep 'test name pattern'`
 
 ## Code Style
 
@@ -40,10 +40,11 @@ Source is CommonJS JavaScript (`lib/`). Tests are TypeScript (`test/`).
 
 ## TypeScript
 
-- Type declarations are generated from JS source via `tsc` (config in `tsconfig.json`)
-- Generated `.d.ts` files go to `types/` directory
-- Tests use ts-node for direct TypeScript execution
+- Published declarations live in `types/`
+- `npx tsc --noEmit` typechecks lib, entrypoint, and tests (`tsconfig.json`)
+- Tests are TypeScript; Node type-stripping runs them without a separate loader
 
 ## Node Version
 
+Requires Node 24+ (`engines` in `package.json`) for native TypeScript type-stripping in tests.
 Volta pins a certain version of Node (see `package.json`).
